@@ -1,0 +1,21 @@
+$def with (group_all, groupList, repoPathRoot, repoPathList)
+<form method="post" action="authz">
+<table border="1" align="center" style="display:">
+    <tr><td>$group_all.name</td><td>$repoPathRoot.path</td><td><input name="rwbox_root" value="all $group_all.id $repoPathRoot.id" type="checkbox" checked/></td></tr>
+</table>
+<br/>
+<table border="1" align="center">
+$for group in groupList:
+    <tr><td style="color:red">$group.name</td><td>读</td><td>写</td></tr>
+    $for repoPath in repoPathList:
+        <tr><td width="50">$repoPath.path</td><td><input name="rwbox" value="read $group.id $repoPath.id" type="checkbox"/></td><td><input name="rwbox" value="write $group.id $repoPath.id" type="checkbox"/></td></tr>
+</table>
+<br/>
+<table border="1" align="center" style="display:none">
+$for group in groupList:
+    <tr><td style="color:red">$group.name</td><td>读</td><td>写</td></tr>
+    $for repoPath in repoPathList:
+        <tr><td width="50">$repoPath.path</td><td><input name="rwbox_all" value="read $group.id $repoPath.id" type="checkbox" checked/></td><td><input name="rwbox_all" value="write $group.id $repoPath.id" type="checkbox" checked/></td></tr>
+</table>
+<p align="center"><input type="submit" value="设置权限"/></p>
+</form>

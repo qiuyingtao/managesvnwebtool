@@ -1,0 +1,30 @@
+$def with (users)
+$ number = len(users)
+$ column = 8
+$ div = number / column
+$ mod = number % column
+$if mod == 0:
+    $ row = div 
+$else:
+    $ row = div + 1
+$# row = number / column  + 1
+<form method="post" action="user_group">
+<div align="center" style="color:red">用户</div>
+<table align="center">
+$for i in range(row):
+    <tr>
+    $for j in range(column):
+        $ loc = i * column + j 
+        $if loc < number:
+            $ user = users[loc]
+            $ name_real = user.name_real
+            $if name_real == "" or name_real is None:
+                <td><input name="user" value="$user.id" type="checkbox"></td><td>$user.name</td>
+            $else:
+                <td><input name="user" value="$user.id" type="checkbox"></td><td>$user.name_real</td>
+        $else:
+            <td></td><td></td>
+    </tr>
+</table>
+<p align="center"><input type="submit" value="查询用户所属的权限组"/></p>
+<form>

@@ -1,0 +1,16 @@
+$def with (repo, repoId)
+<div align="center">
+$if repo == "":
+    <form method="post" action="add_repo_path">
+$elif len(repo) != 0:
+    <form method="post" action="add_repo_path_exist">
+<br/>
+$if repo == "":
+    <p>repository name: <input type="text" style="width:100px;text-align:right" name="repo_name"/>&nbsp;&nbsp; repository 中文名: <input type="text" style="width:100px;text-align:right" name="repo_name_zh"/></p>
+$elif len(repo) != 0:
+    <p><input name="repoId" value="$repoId" style="display:none">repository: $repo</p>
+<p>文件夹名之间用“,”隔开</p>
+<textarea name="paths" align="center" type="text" style="width:400;height:400"></textarea>
+<p><input type="submit" value="添加"/></p>
+</form>
+</div>

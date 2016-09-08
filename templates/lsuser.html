@@ -1,0 +1,27 @@
+$def with (userList)
+$ number = len(userList)
+$ column = 3 
+$ div = number / column
+$ mod = number % column
+$if mod == 0:
+    $ row = div 
+$else:
+    $ row = div + 1
+<div align="center"><a href="/">回到首页</a></div>
+<table align="center">
+    <tr>
+    $for i in range(column):
+        <td><div style="color:red">username</div></td><td><div style="color:red">password</div></td>
+    </tr>
+$for i in range(row):
+    <tr>
+    $for j in range(column):
+        $ loc = i * column + j 
+        $if loc < number:
+            $ user = userList[loc]
+            <td>$user["name"]</td><td>$user["password"]</td>
+        $else:
+            <td></td><td></td>
+    </tr>
+</table>
+<div align="center"><a href="/">回到首页</a></div>

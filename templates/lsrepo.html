@@ -1,0 +1,27 @@
+$def with (repos, page)
+$if page == "pathexist":
+    <form method="post" action="compose_path">
+$elif page == "group":
+    <form method="post" action="search_group">
+$elif page == "authz":
+    <form method="post" action="search_authz">
+$elif page == "groupmembership":
+    <form method="post" action="list_user_group">
+$elif page == "chooserepo":
+    <form method="post" action="choose_group">
+<table align="center">
+    <tr style="color:red"><td></td><td>id</td><td>name</td><td>中文名</td></tr>
+$for repo in repos:
+    <tr><td><input name="repository" value="$repo.id" type="radio"></td><td>$repo.id</td><td>$repo.name</td><td>$repo.repo_name</tr>
+</table>
+$if page == "pathexist":
+    <p align="center"><input type="submit" value="添加文件夹路径"/></p>
+$elif page == "group":
+    <p align="center"><input type="submit" value="创建需要的组"/></p>
+$elif page == "authz":
+    <p align="center"><input type="submit" value="搜索对应的组和文件夹"/></p>
+$elif page == "groupmembership":
+    <p align="center"><input type="submit" value="选择用户将其加入对应的权限组里"/></p>
+$elif page == "chooserepo":
+    <p align="center"><input type="submit" value="选择相应的权限组"/></p>
+</form>

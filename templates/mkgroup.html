@@ -1,0 +1,11 @@
+$def with (repo_name)
+$ repo_name_group_all = repo_name + "_group_all"
+$ repo_name_group_ = repo_name + "_group_"
+<div align="center">
+<form method="post" action="group">
+<br/>
+<p>每个组以 $repo_name_group_ 开头，每个组之间用“,”隔开</p>
+<textarea name="groups" align="center" type="text" style="width:400;height:400">$repo_name_group_all,</textarea>
+<p><input type="submit" value="创建组"/></p>
+</form>
+</div>

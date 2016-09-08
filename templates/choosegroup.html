@@ -1,0 +1,9 @@
+$def with (groupList)
+<form method="post" action="group_user">
+<div align="center" style="color:red">权限组</div>
+<table align="center">
+$for group in groupList:
+    <tr><td><input name="group" value="$group.id" type="checkbox"></td><td>$group.name</td></tr>
+</table>
+<p align="center"><input type="submit" value="查询权限组包含的用户"/></p>
+</form>

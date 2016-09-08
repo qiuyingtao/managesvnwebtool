@@ -1,0 +1,17 @@
+$def with (userNameList, groupsList)
+$ number = len(userNameList)
+<div align="center"><a href="/">回到首页</a></div>
+<table align="center" border="1">
+<tr><td align="center" style="color:red">用户</td><td align="center" style="color:red">权限组</td></tr>
+$for i in range(number):
+    $ groups = groupsList[i]
+    $ groupNumber = len(groups)
+    $if groupNumber == 0:
+        <tr><td align="center">$userNameList[i]</td><td align="center">不属于任何组</td></tr>
+    $else:
+        <tr><td align="center" rowspan="$groupNumber">$userNameList[i]</td><td>$groups[0]</td></tr>
+        $if groupNumber > 1:
+            $for j in range(groupNumber - 1):
+                <tr><td>$groups[j + 1]</td></tr>
+</table>
+<div align="center"><a href="/">回到首页</a></div>
